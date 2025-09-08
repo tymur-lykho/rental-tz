@@ -1,0 +1,13 @@
+.header {
+  background-color: var(--badges);
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  padding: 26px 0;
+}

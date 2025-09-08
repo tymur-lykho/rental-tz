@@ -1,0 +1,9 @@
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navLink {
+  padding: 26px 0;
+}

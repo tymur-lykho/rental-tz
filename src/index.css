@@ -32,9 +32,10 @@ a {
   font-weight: 500;
   color: var(--main);
   text-decoration: none;
-}
-a:hover {
-  color: var(--button-hover);
+
+  &:hover {
+    color: var(--button-hover);
+  }
 }
 
 body {
