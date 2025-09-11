@@ -29,19 +29,23 @@
 }
 
 a {
-  font-weight: 500;
-  color: var(--main);
   text-decoration: none;
-
-  &:hover {
-    color: var(--button-hover);
-  }
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
 img,

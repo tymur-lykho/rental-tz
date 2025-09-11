@@ -6,4 +6,15 @@
 
 .navLink {
   padding: 26px 0;
+
+  font-weight: 500;
+  color: var(--main);
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active {
+    color: var(--button-hover);
+  }
 }

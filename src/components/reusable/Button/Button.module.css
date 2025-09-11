@@ -1,0 +1,26 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 12px;
+
+  min-width: 156px;
+  max-width: 276px;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+
+  color: var(--white);
+
+  background-color: var(--button);
+  transition: background-color 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active {
+    background-color: var(--button-hover);
+  }
+}
