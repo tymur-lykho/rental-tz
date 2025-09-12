@@ -1,0 +1,100 @@
+.card {
+  display: block;
+  max-width: 276px;
+  border-radius: 15px;
+
+  &:hover .imgWrapper,
+  &:focus .imgWrapper {
+    box-shadow: 3px -2px 64px -7px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 3px -2px 64px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px -2px 64px -7px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.imgWrapper {
+  position: relative;
+  border-radius: 15px;
+
+  transition: box-shadow 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.image {
+  height: 268px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+}
+
+.likeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.5);
+  }
+}
+
+.likeIcon {
+  fill: var(--white);
+}
+
+.title {
+  max-width: calc(100% - 11px);
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 8px;
+
+  & .model {
+    color: var(--button);
+  }
+}
+
+.dataList {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag {
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 0;
+    display: flex;
+    width: 1px;
+    height: 16px;
+    background-color: var(--gray);
+  }
+}
+
+.baseData {
+  margin-bottom: 4px;
+}
+
+.details {
+  margin-bottom: 32px;
+}

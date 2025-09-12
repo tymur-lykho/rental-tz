@@ -2,3 +2,12 @@
   display: flex;
   flex-wrap: nowrap;
 }
+
+.title {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  display: inline-block;
+  color: var(--gray);
+}

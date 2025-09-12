@@ -33,25 +33,15 @@ export default function FromToInput({
       lineHeight: "inherit",
       fontWeight: "inherit",
       color: "var(--main)",
+      "&.Mui-focused": {
+        color: "inherit",
+      },
     },
   };
 
   return (
     <div className={css.wrapper}>
-      <InputLabel
-        variant="standard"
-        id="from-to-input-label"
-        sx={{
-          marginBottom: "8px",
-          fontFamily: "inherit",
-          fontSize: "12px",
-          fontWeight: 400,
-          lineHeight: 1.33,
-          color: "var(--grey)",
-        }}
-      >
-        {title}
-      </InputLabel>
+      <span className={css.title}>{title}</span>
       <div className={css.fieldsWrapper}>
         <TextField
           type="number"
