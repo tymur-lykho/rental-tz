@@ -2,16 +2,19 @@ import { Link } from "react-router";
 import css from "./CarInformation.module.css";
 import getAddress from "../../utils/getAddress";
 import Icon from "../reusable/Icon";
+import ConditionList from "../ConditionsList/ConditionsList";
 
 export default function CarInformation({ data }) {
   const { country, city } = getAddress(data.address);
 
   return (
-    <>
+    <div style={{ minHeight: "1020px", marginTop: "20px" }}>
       <section className={css.main}>
         <h2 className={css.title}>
           {data.brand} {data.model}, {data.year}
-          <span className={css.carId}>Id: {data.id}</span>
+          <span className={css.carId}>
+            Id: {data.id.slice(0, 8).toUpperCase()}
+          </span>
         </h2>
 
         <Link to={"/"} className={css.location}>
@@ -28,7 +31,25 @@ export default function CarInformation({ data }) {
         <p className={css.description}>{data.description}</p>
       </section>
 
-      <secton className={css.conditions}></secton>
-    </>
+      <secton className={css.conditions}>
+        <ConditionList
+          title="Rental Conditions:"
+          list={data.rentalConditions}
+        />
+        <ConditionList
+          title="Car Specifications:"
+          list={[
+            `Year: ${data.year}`,
+            `Type: ${data.type}`,
+            `Fuel Consumption: ${data.fuelConsumption}`,
+            `Engine Size: ${data.engineSize}`,
+          ]}
+        />
+        <ConditionList
+          title="Accessories and functionalities:"
+          list={[...data.accessories, ...data.functionalities]}
+        />
+      </secton>
+    </div>
   );
 }

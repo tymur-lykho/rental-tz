@@ -1,4 +1,14 @@
 .container {
+  display: flex;
+  align-items: flex-start;
+  gap: 72px;
+}
+
+.imageFormWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .image {

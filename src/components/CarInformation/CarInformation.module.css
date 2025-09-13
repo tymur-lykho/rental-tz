@@ -11,6 +11,7 @@
 }
 
 .carId {
+  display: inline-block;
   margin-left: 16px;
 
   font-weight: 500;
@@ -25,7 +26,8 @@
 }
 
 .locationIcon {
-  display: inline;
+  display: inline-block;
+  margin-right: 4px;
 }
 
 .mileage {
@@ -39,4 +41,13 @@
   color: var(--button);
   margin-top: 16px;
   margin-bottom: 32px;
+}
+
+.conditions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  height: 100%;
+  min-height: 772px;
 }
