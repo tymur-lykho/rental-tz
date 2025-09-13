@@ -57,6 +57,11 @@ svg {
   max-width: 100%;
 }
 
+img {
+  object-fit: cover;
+  object-position: center;
+}
+
 input,
 button,
 textarea,

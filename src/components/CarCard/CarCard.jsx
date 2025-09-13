@@ -2,12 +2,10 @@ import css from "./CarCard.module.css";
 import Button from "../reusable/Button/Button";
 import Icon from "../reusable/Icon";
 import { Link } from "react-router";
+import getAddress from "../../utils/getAddress";
 
 export default function CarCard({ data }) {
-  const address = data.address;
-  const parts = address.split(",").map((s) => s.trim());
-  const city = parts[parts.length - 2];
-  const country = parts[parts.length - 1];
+  const { country, city } = getAddress(data.address);
 
   return (
     <Link to={"/"} className={css.card}>
