@@ -146,7 +146,7 @@ yarn build
 **Tymur Lykho**
 
 - GitHub: [@tymur-lykho](https://github.com/tymur-lykho)
-- Email: tima.likho@gamil.com
+- Email: tima.likho@gmail.com
 - LinkedIn: [Tymur Lykho](https://linkedin.com/in/tymur-lykho)
 
 ## 🙏 Подяки
