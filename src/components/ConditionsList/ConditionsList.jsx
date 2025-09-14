@@ -7,9 +7,9 @@ export default function ConditionList({ title, list }) {
     <div>
       <h3 className={css.title}>{title}</h3>
       <ul className={css.list}>
-        {list.map((item) => {
+        {list.map((item, index) => {
           return (
-            <li className={css.item}>
+            <li key={index} className={css.item}>
               <Icon
                 id={getIconId(item)}
                 width={16}

@@ -3,10 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Joi from "joi";
 import { joiToFormErrors } from "../../utils/joiToFormErrors";
 import { useState } from "react";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import TextField from "@mui/material/TextField";
+import Calendar from "../reusable/Calendar/Calendar";
+import Button from "../reusable/Button/Button";
 
 const schema = Joi.object({
   name: Joi.string().min(2).max(50).required().messages({
@@ -31,6 +30,8 @@ const schema = Joi.object({
 });
 
 export default function BookingForm() {
+  const [focusedField, setFocusedField] = useState("");
+
   const initialValues = {
     name: "",
     email: "",
@@ -61,9 +62,8 @@ export default function BookingForm() {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, touched, values, setFieldValue }) => (
-          <Form className="form">
-            {/* Name */}
-            <div className="formGroup">
+          <Form className={css.form}>
+            <div className={css.formGroup}>
               <label htmlFor="name" className={css.visuallyHidden}>
                 Name
               </label>
@@ -71,13 +71,16 @@ export default function BookingForm() {
                 type="text"
                 name="name"
                 id="name"
-                placeholder={`Name${!touched.name || !values.name ? " *" : ""}`}
+                placeholder={`Name${
+                  focusedField !== "name" && !values.name ? " *" : ""
+                }`}
+                onFocus={() => setFocusedField("name")}
+                onBlur={() => setFocusedField("")}
               />
-              <ErrorMessage name="name" component="div" className="error" />
+              <ErrorMessage name="name" component="div" className={css.error} />
             </div>
 
-            {/* Email */}
-            <div className="formGroup">
+            <div className={css.formGroup}>
               <label htmlFor="email" className={css.visuallyHidden}>
                 Email
               </label>
@@ -86,62 +89,54 @@ export default function BookingForm() {
                 name="email"
                 id="email"
                 placeholder={`Email${
-                  !touched.email || !values.email ? " *" : ""
+                  focusedField !== "email" && !values.email ? " *" : ""
                 }`}
+                onFocus={() => setFocusedField("email")}
+                onBlur={() => setFocusedField("")}
               />
-              <ErrorMessage name="email" component="div" className="error" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className={css.error}
+              />
             </div>
 
-            {/* Booking Date */}
-            <div className="formGroup">
+            <div className={css.formGroup}>
               <label htmlFor="bookingDate" className={css.visuallyHidden}>
                 Booking Date
               </label>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  disablePast
-                  value={values.bookingDate}
-                  onChange={(newValue) =>
-                    setFieldValue("bookingDate", newValue)
-                  }
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      placeholder={`Booking Date${
-                        !touched.bookingDate || !values.bookingDate ? " *" : ""
-                      }`}
-                      sx={{
-                        "& .MuiOutlinedInput-root": {
-                          borderRadius: "12px",
-                          backgroundColor: "var(--inputs)",
-                        },
-                        "& .MuiSvgIcon-root": {
-                          color: "var(--main)",
-                        },
-                      }}
-                    />
-                  )}
-                />
-              </LocalizationProvider>
+              <Calendar
+                bookingDate={values.bookingDate}
+                setFieldValue={setFieldValue}
+                touched={touched}
+              />
               <ErrorMessage
                 name="bookingDate"
                 component="div"
-                className="error"
+                className={css.error}
               />
             </div>
 
-            {/* Comment */}
-            <div className="formGroup">
+            <div className={css.formGroup}>
               <label htmlFor="comment" className={css.visuallyHidden}>
                 Comment
               </label>
-              <Field as="textarea" name="comment" id="comment" rows="4" />
-              <ErrorMessage name="comment" component="div" className="error" />
+              <Field
+                as="textarea"
+                name="comment"
+                id="comment"
+                placeholder="Comment"
+              />
+              <ErrorMessage
+                name="comment"
+                component="div"
+                className={css.error}
+              />
             </div>
 
-            <button type="submit" disabled={isSubmitting}>
-              Reserve
-            </button>
+            <Button type="submit" disabled={isSubmitting} className={css.btn}>
+              Send
+            </Button>
           </Form>
         )}
       </Formik>

@@ -18,6 +18,42 @@
   margin-bottom: 24px;
 }
 
+.form {
+  & input,
+  & textarea {
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--inputs);
+
+    margin-bottom: 16px;
+  }
+
+  & input::placeholder,
+  & textarea::placeholder {
+    color: var(--gray);
+  }
+
+  & textarea {
+    resize: none;
+    margin-bottom: 24px;
+    height: 88px;
+  }
+}
+
+.formGroup {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  color: rgb(223, 102, 102); /* var() тут не потрібно */
+  font-size: 12px;
+}
+
 .visuallyHidden {
   position: absolute;
   width: 1px;
@@ -28,4 +64,8 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
   white-space: nowrap;
+}
+
+.btn {
+  margin: 0 auto;
 }

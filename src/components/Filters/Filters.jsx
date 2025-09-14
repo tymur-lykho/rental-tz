@@ -6,21 +6,23 @@ import Container from "../reusable/Container/Container";
 
 export default function Filters() {
   return (
-    <Container className={css.filtersWrapper}>
-      <Select
-        title="Car brand"
-        value={""}
-        values={[1, 2, 3]}
-        textInSelect="Choose a brand"
-      ></Select>
-      <Select
-        title="Car brand"
-        value={""}
-        values={[1, 2, 3]}
-        textInSelect="Choose a price"
-      ></Select>
-      <FromToInput title="Сar mileage / km" fromLabel="From" toLabel="To" />
-      <Button> Search </Button>
+    <Container>
+      <section className={css.filterSection}>
+        <Select
+          title="Car brand"
+          value={""}
+          values={[1, 2, 3]}
+          textInSelect="Choose a brand"
+        ></Select>
+        <Select
+          title="Car brand"
+          value={""}
+          values={[1, 2, 3]}
+          textInSelect="Choose a price"
+        ></Select>
+        <FromToInput title="Сar mileage / km" fromLabel="From" toLabel="To" />
+        <Button type="submit"> Search </Button>
+      </section>
     </Container>
   );
 }

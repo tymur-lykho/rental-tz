@@ -8,7 +8,7 @@ export default function CarInformation({ data }) {
   const { country, city } = getAddress(data.address);
 
   return (
-    <div style={{ minHeight: "1020px", marginTop: "20px" }}>
+    <div>
       <section className={css.main}>
         <h2 className={css.title}>
           {data.brand} {data.model}, {data.year}
@@ -31,7 +31,7 @@ export default function CarInformation({ data }) {
         <p className={css.description}>{data.description}</p>
       </section>
 
-      <secton className={css.conditions}>
+      <section className={css.conditions}>
         <ConditionList
           title="Rental Conditions:"
           list={data.rentalConditions}
@@ -49,7 +49,7 @@ export default function CarInformation({ data }) {
           title="Accessories and functionalities:"
           list={[...data.accessories, ...data.functionalities]}
         />
-      </secton>
+      </section>
     </div>
   );
 }
