@@ -45,7 +45,7 @@ export default function CustomSelect({
         sx={{
           fontFamily: "inherit",
           lineHeight: "inherit",
-          width: "204px",
+          width: "100%",
           ".MuiSelect-select": {
             borderRadius: "12px",
             padding: "12px",
@@ -64,9 +64,7 @@ export default function CustomSelect({
           />
         )}
       >
-        <MenuItem value="" disabled>
-          {textInSelect}
-        </MenuItem>
+        <MenuItem value="">{textInSelect}</MenuItem>
         {values.map((val) => (
           <MenuItem key={val} value={val}>
             {val}

@@ -13,7 +13,11 @@ export default function FromToInput({
   const sharedSx = {
     ".MuiOutlinedInput-root": {
       backgroundColor: "var(--inputs)",
-      maxWidth: "160px",
+      width: "100%",
+      "@media (min-width:1440px)": {
+        maxWidth: "160px",
+        width: "160px",
+      },
       "& .MuiOutlinedInput-notchedOutline": {
         border: "none",
       },
@@ -47,7 +51,11 @@ export default function FromToInput({
           type="number"
           label={fromLabel}
           value={minValue}
-          onChange={onChangeMin}
+          onChange={(e) => {
+            const value =
+              e.target.value === "" ? "" : Math.max(0, Number(e.target.value));
+            onChangeMin(value);
+          }}
           sx={{
             ...sharedSx,
             ".MuiOutlinedInput-root": {
@@ -61,13 +69,20 @@ export default function FromToInput({
           }}
           slotProps={{
             inputLabel: { shrink: false },
+            htmlInput: { min: 0, max: maxValue, step: 250 },
           }}
         />
         <TextField
           type="number"
           label={toLabel}
           value={maxValue}
-          onChange={onChangeMax}
+          onChange={(e) => {
+            const value =
+              e.target.value === ""
+                ? ""
+                : Math.max(minValue ?? 0, Number(e.target.value));
+            onChangeMax(value);
+          }}
           sx={{
             ...sharedSx,
             ".MuiOutlinedInput-root": {
@@ -80,6 +95,10 @@ export default function FromToInput({
           }}
           slotProps={{
             inputLabel: { shrink: false },
+            htmlInput: {
+              min: minValue ?? 0,
+              step: 250,
+            },
           }}
         />
       </div>

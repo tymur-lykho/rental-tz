@@ -1,10 +1,12 @@
 .filterSection {
+  padding-top: 84px;
+  padding-bottom: 56px;
+}
+
+.filterForm {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
-
-  padding-top: 84px;
-  padding-bottom: 56px;
 }

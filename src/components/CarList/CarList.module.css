@@ -1,8 +1,8 @@
 .carList {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-end;
   row-gap: 48px;
   column-gap: 32px;
 }

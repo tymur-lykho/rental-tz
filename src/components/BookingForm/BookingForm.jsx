@@ -3,9 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Joi from "joi";
 import { joiToFormErrors } from "../../utils/joiToFormErrors";
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
 import Calendar from "../reusable/Calendar/Calendar";
 import Button from "../reusable/Button/Button";
+import { selectCarsData } from "../../redux/cars/selectors";
+import { useSelector } from "react-redux";
+import { showBookingToast } from "./BookingToast/BookingToast";
 
 const schema = Joi.object({
   name: Joi.string().min(2).max(50).required().messages({
@@ -32,6 +34,8 @@ const schema = Joi.object({
 export default function BookingForm() {
   const [focusedField, setFocusedField] = useState("");
 
+  const { currentCar } = useSelector(selectCarsData);
+
   const initialValues = {
     name: "",
     email: "",
@@ -45,7 +49,7 @@ export default function BookingForm() {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log("Booking data:", values);
+    showBookingToast(values, currentCar);
     resetForm();
   };
 

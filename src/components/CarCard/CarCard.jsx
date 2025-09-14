@@ -1,14 +1,16 @@
 import css from "./CarCard.module.css";
 import Button from "../reusable/Button/Button";
 import Icon from "../reusable/Icon";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import getAddress from "../../utils/getAddress";
 
 export default function CarCard({ data }) {
+  const navigate = useNavigate();
+
   const { country, city } = getAddress(data.address);
 
   return (
-    <Link to={"/"} className={css.card}>
+    <div className={css.card} onClick={() => navigate(`/catalog/${data.id}`)}>
       <div className={css.imgWrapper}>
         <img
           src={data.img}
@@ -35,9 +37,9 @@ export default function CarCard({ data }) {
         <li className={css.tag}>{data.type}</li>
         <li className={css.tag}>{data.mileage.toLocaleString("uk-UA")} km</li>
       </ul>
-      <Button type="link" linkTo={"/"} className={css.btn}>
+      <Button type="link" linkTo={`/catalog/${data.id}`} className={css.btn}>
         Read more
       </Button>
-    </Link>
+    </div>
   );
 }

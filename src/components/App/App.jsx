@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { Toaster } from "react-hot-toast";
 
 import Loader from "../reusable/Loader/Loader";
 import Layout from "../Layout/Layout";
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <Layout>
+        <Toaster />
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
