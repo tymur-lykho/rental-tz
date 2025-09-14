@@ -1,6 +1,8 @@
-import getIconId from "../../utils/getIconId";
-import Icon from "../reusable/Icon";
 import css from "./ConditionsList.module.css";
+
+import Icon from "../reusable/Icon";
+
+import getIconId from "../../utils/getIconId";
 
 export default function ConditionList({ title, list }) {
   return (

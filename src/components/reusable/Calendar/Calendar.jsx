@@ -1,9 +1,10 @@
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
 
-export default function Calendar({ bookingDate, setFieldValue, touched }) {
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+
+export default function Calendar({ bookingDate, setFieldValue }) {
   const [open, setOpen] = useState(false);
 
   return (

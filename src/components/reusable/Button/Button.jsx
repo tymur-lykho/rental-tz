@@ -1,6 +1,7 @@
+import css from "./Button.module.css";
+
 import clsx from "clsx";
 import { Link } from "react-router";
-import css from "./Button.module.css";
 
 export default function Button({
   type = "button",

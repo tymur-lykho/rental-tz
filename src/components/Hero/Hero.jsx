@@ -1,6 +1,7 @@
+import css from "./Hero.module.css";
+
 import Button from "../reusable/Button/Button";
 import Container from "../reusable/Container/Container";
-import css from "./Hero.module.css";
 
 export default function Hero() {
   return (

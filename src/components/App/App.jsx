@@ -1,18 +1,16 @@
-import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Toaster } from "react-hot-toast";
 
 import Loader from "../reusable/Loader/Loader";
 import Layout from "../Layout/Layout";
-import HomePage from "../../pages/HomePage/HomePage";
-import CatalogPage from "../../pages/CatalogPage/CatalogPage";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
-import CarPage from "../../pages/CarPage/CarPage";
 
-// const Home = lazy(() => import("./pages/Home"));
-// const About = lazy(() => import("./pages/About"));
-// const NotFound = lazy(() => import("./pages/NotFound"));
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
+const CarPage = lazy(() => import("../../pages/CarPage/CarPage"));
+const NotFoundPage = lazy(() =>
+  import("../../pages/NotFoundPage/NotFoundPage")
+);
 
 function App() {
   return (

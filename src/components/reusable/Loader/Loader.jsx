@@ -5,13 +5,13 @@ const Loader = () => {
     <div className={css.loader} role="status" aria-label="Loading">
       <svg
         className={css.car}
-        width="180"
+        width="200"
         height="40"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g
           transform="translate(2 1)"
-          stroke="#fff"
+          stroke="#000"
           fill="none"
           fillRule="evenodd"
           strokeLinecap="round"

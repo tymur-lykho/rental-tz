@@ -1,17 +1,28 @@
-import { NavLink } from "react-router";
 import css from "./NavBar.module.css";
+
+import { NavLink } from "react-router";
 
 export default function NavBar() {
   return (
     <nav className={css.nav}>
       <ul className={css.navList}>
         <li className={css.navItem}>
-          <NavLink className={css.navLink} to={"/"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${css.navLink} ${css.active}` : css.navLink
+            }
+            to={"/"}
+          >
             Home
           </NavLink>
         </li>
         <li className={css.navItem}>
-          <NavLink className={css.navLink} to={"/catalog"}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${css.navLink} ${css.active}` : css.navLink
+            }
+            to={"/catalog"}
+          >
             Catalog
           </NavLink>
         </li>

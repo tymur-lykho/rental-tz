@@ -2,13 +2,15 @@
   margin: 0 auto;
   margin-top: 80px;
 
-  background-color: transparent;
-  border: 1px solid var(--button);
-  color: var(--main);
+  background-color: transparent !important;
+  border: 1px solid var(--button) !important;
+  color: var(--main) !important;
 
   &:hover,
-  &:focus {
-    border: 1px solid var(--button-hover);
-    background-color: transparent;
+  &:focus,
+  &:focus-visible,
+  &:active {
+    border: 1px solid var(--button-hover) !important;
+    background-color: transparent !important;
   }
 }

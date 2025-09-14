@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { fetchCarData, fetchCars } from "./operations";
+
 import { hasNextPage } from "../../utils/hasNextPage";
 
 const handlePending = (state) => {
@@ -29,7 +31,6 @@ const carSlice = createSlice({
   reducers: {
     resetCars(state) {
       state.cars = [];
-      // likedCars = [];
       state.hasNextPage = false;
       state.totalCars = null;
       state.page = 1;
@@ -37,6 +38,16 @@ const carSlice = createSlice({
     },
     setPage(state, action) {
       state.page = action.payload;
+    },
+    addCarToLikeList(state, action) {
+      if (!state.likedCars.includes(action.payload)) {
+        state.likedCars.push(action.payload);
+      }
+    },
+    removeCarFromLikeList(state, action) {
+      state.likedCars = state.likedCars.filter(
+        (item) => item !== action.payload
+      );
     },
   },
   extraReducers: (builder) => {
@@ -71,6 +82,7 @@ const carSlice = createSlice({
   },
 });
 
-export const { resetCars, setPage } = carSlice.actions;
+export const { resetCars, setPage, addCarToLikeList, removeCarFromLikeList } =
+  carSlice.actions;
 
 export default carSlice.reducer;

@@ -1,9 +1,11 @@
 import css from "./Select.module.css";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Icon from "../Icon";
+
 import { useState } from "react";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+
+import Icon from "../Icon";
 
 export default function CustomSelect({
   title = "Select title",

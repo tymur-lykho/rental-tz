@@ -1,16 +1,18 @@
 import css from "./Filters.module.css";
-import Select from "../reusable/Select/Select";
-import FromToInput from "../reusable/FromToInput/FromToInput";
-import Button from "../reusable/Button/Button";
-import Container from "../reusable/Container/Container";
 
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import Button from "../reusable/Button/Button";
+import Select from "../reusable/Select/Select";
+import Container from "../reusable/Container/Container";
+import FromToInput from "../reusable/FromToInput/FromToInput";
+
 import { setBrand, setPrice, setMileage } from "../../redux/filters/slice";
 import { selectFilterData } from "../../redux/filters/selectors";
-import { useEffect } from "react";
 import { fetchBrands } from "../../redux/filters/operations";
+import { resetCars, setPage } from "../../redux/cars/slice";
 import { fetchCars } from "../../redux/cars/operations";
-import { resetCars } from "../../redux/cars/slice";
 
 export default function Filters() {
   const dispatch = useDispatch();
@@ -20,28 +22,36 @@ export default function Filters() {
 
   useEffect(() => {
     dispatch(fetchBrands());
-  }, []);
 
-  const handleBrandChange = (selectedOption) => {
-    dispatch(setBrand(selectedOption.target.value));
-  };
+    const params = Object.fromEntries(
+      new URLSearchParams(window.location.search)
+    );
 
-  const handlePriceChange = (selectedOption) => {
-    dispatch(setPrice(selectedOption.target.value));
-  };
-
-  const handleChangeMin = (value) => {
-    dispatch(setMileage({ min: value }));
-  };
-
-  const handleChangeMax = (value) => {
-    dispatch(setMileage({ max: value }));
-  };
+    if (params.brand) dispatch(setBrand(params.brand));
+    if (params.price) dispatch(setPrice(params.price));
+    if (params.min) dispatch(setMileage({ min: params.min }));
+    if (params.max) dispatch(setMileage({ max: params.max }));
+  }, [dispatch]);
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    const params = Object.fromEntries(
+      Object.entries({ brand, price, ...mileage }).filter(
+        ([, value]) => value !== "" && value != null
+      )
+    );
+
+    const queryString = new URLSearchParams(params).toString();
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}?${queryString}`
+    );
+
     dispatch(resetCars());
-    dispatch(fetchCars({ filters: { brand, price, mileage } }));
+    dispatch(setPage(1));
+    dispatch(fetchCars({ filters: params, page: 1 }));
   };
 
   return (
@@ -53,25 +63,25 @@ export default function Filters() {
             value={brand}
             values={brands}
             textInSelect="Choose a brand"
-            onChange={handleBrandChange}
-          ></Select>
+            onChange={(e) => dispatch(setBrand(e.target.value))}
+          />
           <Select
-            title="Price/ 1 hour"
+            title="Price / 1 hour"
             value={price}
             values={prices}
             textInSelect="Choose a price"
-            onChange={handlePriceChange}
-          ></Select>
+            onChange={(e) => dispatch(setPrice(e.target.value))}
+          />
           <FromToInput
-            title="Сar mileage / km"
+            title="Car mileage / km"
             fromLabel="From"
             toLabel="To"
-            onChangeMin={handleChangeMin}
-            onChangeMax={handleChangeMax}
             minValue={mileage.min || ""}
             maxValue={mileage.max || ""}
+            onChangeMin={(value) => dispatch(setMileage({ min: value }))}
+            onChangeMax={(value) => dispatch(setMileage({ max: value }))}
           />
-          <Button type="submit"> Search </Button>
+          <Button type="submit">Search</Button>
         </form>
       </section>
     </Container>

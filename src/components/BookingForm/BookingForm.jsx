@@ -1,13 +1,16 @@
 import css from "./BookingForm.module.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import Joi from "joi";
-import { joiToFormErrors } from "../../utils/joiToFormErrors";
 import { useState } from "react";
-import Calendar from "../reusable/Calendar/Calendar";
-import Button from "../reusable/Button/Button";
-import { selectCarsData } from "../../redux/cars/selectors";
 import { useSelector } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+
+import Button from "../reusable/Button/Button";
+import Calendar from "../reusable/Calendar/Calendar";
 import { showBookingToast } from "./BookingToast/BookingToast";
+
+import { joiToFormErrors } from "../../utils/joiToFormErrors";
+
+import { selectCarsData } from "../../redux/cars/selectors";
 
 const schema = Joi.object({
   name: Joi.string().min(2).max(50).required().messages({

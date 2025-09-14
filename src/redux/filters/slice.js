@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { fetchBrands } from "./operations";
 
 const handlePending = (state) => {

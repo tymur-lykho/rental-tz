@@ -1,22 +1,18 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCars = createAsyncThunk(
   "cars/fetchCars",
   async ({ page = 1, limit = 12, filters = {} } = {}, thunkAPI) => {
     try {
-      const {
-        brand = null,
-        price = null,
-        mileage = { min: null, max: null },
-      } = filters;
+      const { brand = null, price = null, min = null, max = null } = filters;
 
       const params = {
         page,
-        brand,
-        rentalPrice: price,
-        ...(mileage.min != null && { minMileage: mileage.min }),
-        ...(mileage.max != null && { maxMileage: mileage.max }),
+        brand: brand || undefined,
+        rentalPrice: price || undefined,
+        ...(min ? { minMileage: Number(min) } : {}),
+        ...(max ? { maxMileage: Number(max) } : {}),
         limit,
       };
 

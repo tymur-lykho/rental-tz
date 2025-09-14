@@ -1,8 +1,10 @@
 import css from "./Header.module.css";
-import Icon from "../reusable/Icon";
-import Container from "../reusable/Container/Container";
-import NavBar from "../NavBar/NavBar";
+
 import { NavLink } from "react-router";
+
+import Icon from "../reusable/Icon";
+import NavBar from "../NavBar/NavBar";
+import Container from "../reusable/Container/Container";
 
 export default function Header() {
   return (

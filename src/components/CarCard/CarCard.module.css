@@ -35,7 +35,7 @@
   right: 16px;
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 5px;
   transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:hover,
@@ -46,6 +46,10 @@
 
 .likeIcon {
   fill: var(--white);
+}
+
+.liked {
+  fill: var(--button);
 }
 
 .title {

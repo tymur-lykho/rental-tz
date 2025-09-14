@@ -1,6 +1,6 @@
 import {
-  // persistStore,
-  // persistReducer,
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,25 +9,23 @@ import {
   REGISTER,
 } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
-// import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage";
 
-import filtersReducer from "./filters/slice";
 import carsReducer from "./cars/slice";
+import filtersReducer from "./filters/slice";
 
-// const persistConfig = {
-//   key: "auth",
-//   storage,
-//   whitelist: ["token"],
-// };
+const persistConfig = {
+  key: "likedCars",
+  storage,
+  whitelist: ["likedCars"],
+};
 
-// const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+const persistedCarsReducer = persistReducer(persistConfig, carsReducer);
 
 export const store = configureStore({
   reducer: {
     filters: filtersReducer,
-    cars: carsReducer,
-    // auth: persistedAuthReducer,
-    // recipes: RecipesReducer,
+    cars: persistedCarsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -37,4 +35,4 @@ export const store = configureStore({
     }),
 });
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);

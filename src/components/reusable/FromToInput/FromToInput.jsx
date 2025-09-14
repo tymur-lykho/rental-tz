@@ -1,5 +1,6 @@
-import { TextField, InputLabel } from "@mui/material";
 import css from "./FromToInput.module.css";
+
+import { TextField, InputLabel } from "@mui/material";
 
 export default function FromToInput({
   title,

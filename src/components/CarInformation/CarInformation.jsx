@@ -1,8 +1,11 @@
-import { Link } from "react-router";
 import css from "./CarInformation.module.css";
-import getAddress from "../../utils/getAddress";
+
+import { Link } from "react-router";
+
 import Icon from "../reusable/Icon";
 import ConditionList from "../ConditionsList/ConditionsList";
+
+import getAddress from "../../utils/getAddress";
 
 export default function CarInformation({ data }) {
   const { country, city } = getAddress(data.address);
