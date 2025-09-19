@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../api/axiosConfig";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchCars = createAsyncThunk(

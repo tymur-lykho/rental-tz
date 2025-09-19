@@ -10,19 +10,17 @@ import FromToInput from "../reusable/FromToInput/FromToInput";
 
 import { setBrand, setPrice, setMileage } from "../../redux/filters/slice";
 import { selectFilterData } from "../../redux/filters/selectors";
-import { fetchBrands } from "../../redux/filters/operations";
 import { resetCars, setPage } from "../../redux/cars/slice";
 import { fetchCars } from "../../redux/cars/operations";
 
-export default function Filters() {
+export default function Filters({ brands }) {
   const dispatch = useDispatch();
-  const { brands, brand, price, mileage } = useSelector(selectFilterData);
+
+  const { brand, price, mileage } = useSelector(selectFilterData);
 
   const prices = [20, 30, 40, 50, 60, 70, 80];
 
   useEffect(() => {
-    dispatch(fetchBrands());
-
     const params = Object.fromEntries(
       new URLSearchParams(window.location.search)
     );
