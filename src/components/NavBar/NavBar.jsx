@@ -22,6 +22,7 @@ export default function NavBar() {
               isActive ? `${css.navLink} ${css.active}` : css.navLink
             }
             to={"/catalog"}
+            end
           >
             Catalog
           </NavLink>

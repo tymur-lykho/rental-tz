@@ -56,15 +56,17 @@ export default function CatalogPage() {
     );
   };
 
-  if (isLoading && !cars.length) return <Loader />;
-
   return (
     <>
       <Filters brands={brands} />
-      <CarList cars={cars} />
+      {isLoading && page === 1 ? <Loader /> : <CarList cars={cars} />}
       {hasNextPage && (
-        <Button className={css.loadMore} onClick={handleLoadMore}>
-          Load more
+        <Button
+          className={css.loadMore}
+          onClick={handleLoadMore}
+          disabled={isLoading}
+        >
+          {isLoading ? "Loading..." : "Load more"}
         </Button>
       )}
     </>
