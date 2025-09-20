@@ -1,147 +1,147 @@
-# 🚗 Car Rental System
+# 🚗 Car Rental
 
-Сучасна система оренди автомобілів з інтуїтивним інтерфейсом та зручним функціоналом для пошуку, фільтрації та бронювання транспорту.
+A modern car rental system with an intuitive interface and convenient functionality for searching, filtering, and booking vehicles.
 
-## 📋 Короткий опис
+## 📋 Brief Description
 
-Car Rental - це веб-додаток, створений для спрощення процесу оренди автомобілів. Система надає користувачам можливість переглядати каталог доступних автомобілів, застосовувати фільтри для пошуку потрібного транспорту, переглядати детальну інформацію про кожен автомобіль та додавати улюблені варіанти до списку вподобань.
+Car Rental is a web application designed to simplify the car rental process. The system provides users with the ability to browse a catalog of available cars, apply filters to search for the right vehicle, view detailed information about each car, and add favorite options to their wishlist.
 
-## ✨ Основні функції
+## ✨ Main Features
 
-### 🏠 Головна сторінка
+### 🏠 Home Page
 
-- Привітальний інтерфейс з презентацією сервісу
-- Швидкий доступ до каталогу автомобілів
+- Welcoming interface with service presentation
+- Quick access to the car catalog
 
-### 🚙 Каталог автомобілів
+### 🚙 Car Catalog
 
-- **Перегляд каталогу**: Відображення всіх доступних автомобілів у вигляді карток
-- **Розумна пагінація**: Завантаження додаткових автомобілів за запитом ("Load more")
-- **Детальна інформація**: Повна інформація про кожен автомобіль (бренд, модель, рік, ціна, пробіг, тип)
+- **Catalog browsing**: Display of all available cars in card format
+- **Smart pagination**: Loading additional cars on demand ("Load more")
+- **Detailed information**: Complete information about each car (brand, model, year, price, mileage, type)
 
-### 🔍 Система фільтрації
+### 🔍 Filtering System
 
-- **Фільтрація за брендом**: Вибір конкретного виробника автомобіля
-- **Цінова категорія**: Встановлення максимальної ціни оренди за годину
-- **Пробіг**: Налаштування діапазону пробігу автомобіля (від/до)
-- **URL синхронізація**: Фільтри зберігаються в URL для можливості поділитися посиланням
-- **Персистентність**: Фільтри зберігаються при оновленні сторінки
+- **Filter by brand**: Selection of specific car manufacturer
+- **Price category**: Setting maximum rental price per hour
+- **Mileage**: Configuring car mileage range (from/to)
+- **URL synchronization**: Filters are stored in URL for easy link sharing
+- **Persistence**: Filters are preserved when page is refreshed
 
-### ❤️ Система вподобань
+### ❤️ Favorites System
 
-- **Додавання/видалення**: Можливість додати автомобіль до улюблених одним кліком
-- **Локальне зберігання**: Вподобані автомобілі зберігаються між сесіями
-- **Візуальні індикатори**: Чітке відображення статусу вподобаних автомобілів
+- **Add/remove**: Ability to add a car to favorites with one click
+- **Local storage**: Favorite cars are saved between sessions
+- **Visual indicators**: Clear display of favorite car status
 
-### 📱 Адаптивний дизайн
+### 📱 Responsive Design
 
-- Повністю адаптований для всіх типів пристроїв
-- Оптимізований користувацький досвід на мобільних пристроях та планшетах
+- Fully adapted for all device types
+- Optimized user experience on mobile devices and tablets
 
-### 📅 Система бронювання
+### 📅 Booking System
 
-- **Вибір дати**: Інтуїтивний календар для вибору дати оренди
-- **Валідація**: Неможливість вибору минулих дат
-- **Форматування**: Відображення дат у зручному форматі (дд.мм.рррр)
+- **Date selection**: Intuitive calendar for selecting rental date
+- **Validation**: Prevents selection of past dates
+- **Formatting**: Date display in convenient format (dd.mm.yyyy)
 
-## 🛠 Технології
+## 🛠 Technologies
 
 **Frontend:**
 
-- **React 18** - Сучасна бібліотека для створення користувацьких інтерфейсів
-- **Redux Toolkit** - Управління станом додатку
-- **Redux Persist** - Збереження стану між сесіями
-- **React Router** - Маршрутизація в додатку
-- **MUI X Date Pickers** - Компоненти для роботи з датами
-- **CSS Modules** - Модульні стилі для компонентів
-- **Axios** - HTTP клієнт для API запитів
-- **Clsx** - Утиліта для умовних CSS класів
+- **React 18** - Modern library for building user interfaces
+- **Redux Toolkit** - Application state management
+- **Redux Persist** - State persistence between sessions
+- **React Router** - Application routing
+- **MUI X Date Pickers** - Components for working with dates
+- **CSS Modules** - Modular component styling
+- **Axios** - HTTP client for API requests
+- **Clsx** - Utility for conditional CSS classes
 
-**Додаткові інструменти:**
+**Additional Tools:**
 
-- **Vercel** - Хостинг та деплой
-- **Git** - Контроль версій
+- **Vercel** - Hosting and deployment
+- **Git** - Version control
 
-## 🚀 Встановлення та запуск
+## 🚀 Installation and Setup
 
-### Системні вимоги
+### System Requirements
 
-- Node.js (версія 16.0 або вище)
-- npm або yarn
+- Node.js (version 16.0 or higher)
+- npm or yarn
 
-### Кроки встановлення
+### Installation Steps
 
-1. **Клонування репозиторію**
+1. **Clone the repository**
 
 ```bash
 git clone https://github.com/tymur-lykho/rental-tz.git
 cd rental-tz
 ```
 
-2. **Встановлення залежностей**
+2. **Install dependencies**
 
 ```bash
 npm install
-# або
+# or
 yarn install
 ```
 
-3. **Запуск в режимі розробки**
+3. **Run in development mode**
 
 ```bash
 npm run dev
-# або
+# or
 yarn run dev
 ```
 
-Додаток буде доступний за адресою `http://localhost:3000`
+The application will be available at `http://localhost:3000`
 
-### 🏗 Збірка для продакшену
+### 🏗 Production Build
 
 ```bash
 npm run build
-# або
+# or
 yarn build
 ```
 
-## 📖 Використання
+## 📖 Usage
 
-1. **Перегляд каталогу**: Перейдіть до розділу "Catalog" для перегляду всіх доступних автомобілів
+1. **Browse catalog**: Navigate to the "Catalog" section to view all available cars
 
-2. **Застосування фільтрів**:
+2. **Apply filters**:
 
-   - Виберіть бренд автомобіля з випадаючого списку
-   - Встановіть максимальну ціну оренди
-   - Вкажіть бажаний діапазон пробігу
-   - Натисніть "Search" для застосування фільтрів
+   - Select car brand from dropdown list
+   - Set maximum rental price
+   - Specify desired mileage range
+   - Click "Search" to apply filters
 
-3. **Додавання до вподобань**: Натисніть на іконку серця на картці автомобіля
+3. **Add to favorites**: Click the heart icon on the car card
 
-4. **Перегляд деталей**: Клікніть на зображення або назву автомобіля для перегляду детальної інформації
+4. **View details**: Click on the image or car name to view detailed information
 
-5. **Поділитися фільтрами**: Скопіюйте URL сторінки з застосованими фільтрами для поділитися з іншими
+5. **Share filters**: Copy the page URL with applied filters to share with others
 
-## 🌟 Особливості проекту
+## 🌟 Project Features
 
-- **Оптимізована продуктивність**: Lazy loading та оптимізовані запити до API
-- **SEO-дружній**: Правильна структура URL та метаданих
-- **Доступність**: Дотримання стандартів веб-доступності
-- **Модульна архітектура**: Легко розширювана структура коду
-- **Type Safety**: Використання сучасних практик розробки
+- **Optimized performance**: Lazy loading and optimized API requests
+- **SEO-friendly**: Proper URL structure and metadata
+- **Accessibility**: Adherence to web accessibility standards
+- **Modular architecture**: Easily extensible code structure
+- **Type Safety**: Using modern development practices
 
-## 🤝 Внесок у проект
+## 🤝 Contributing to the Project
 
-1. Форкніть проект
-2. Створіть feature branch (`git checkout -b feature/AmazingFeature`)
-3. Зробіть коміт змін (`git commit -m 'Add some AmazingFeature'`)
-4. Зпуште branch (`git push origin feature/AmazingFeature`)
-5. Відкрийте Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Ліцензія
+## 📄 License
 
-Цей проект розповсюджується під ліцензією MIT. Дивіться файл `LICENSE` для додаткової інформації.
+This project is distributed under the MIT License. See the `LICENSE` file for additional information.
 
-## 👨‍💻 Автор
+## 👨‍💻 Author
 
 **Tymur Lykho**
 
@@ -149,27 +149,27 @@ yarn build
 - Email: tima.likho@gmail.com
 - LinkedIn: [Tymur Lykho](https://linkedin.com/in/tymur-lykho)
 
-## 🙏 Подяки
+## 🙏 Acknowledgments
 
-- Команді React за чудову бібліотеку
-- Спільноті Redux за потужні інструменти управління станом
-- Усім контриб'юторам, які допомагали покращувати проект
+- The React team for the excellent library
+- The Redux community for powerful state management tools
+- All contributors who helped improve the project
 
 ---
 
-⭐ Якщо проект вам сподобався, поставте зірку на GitHub!
+⭐ If you liked the project, please give it a star on GitHub!
 
-## 📸 Скріншоти
+## 📸 Screenshots
 
-### Головна сторінка
+### Home Page
 
 ![Home Page](screenshots/home.png)
 
-### Каталог з фільтрами
+### Catalog with Filters
 
 ![Catalog with Filters](screenshots/catalog.png)
 
-### Детальна інформація про автомобіль
+### Car Details
 
 ![Car Details](screenshots/car-details.png)
 
