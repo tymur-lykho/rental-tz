@@ -3,8 +3,11 @@
   border-radius: 10px;
   padding: 32px;
   width: 100%;
-  max-width: 640px;
   height: 488px;
+
+  @media only screen and (min-width: 1440px) {
+    max-width: 640px;
+  }
 }
 
 .title {
