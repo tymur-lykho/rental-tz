@@ -3,6 +3,10 @@
   font-size: 12px;
   border: 1px solid var(--button);
   border-radius: 12px;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.67);
+  -webkit-box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.67);
+  background-color: var(--white);
 }
 
 .react-datepicker-wrapper {
@@ -100,6 +104,7 @@
 
 .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle,
 .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle {
+  fill: var(--white);
   stroke: var(--button);
 }
 
