@@ -2,7 +2,19 @@ import { format } from "date-fns";
 import toast from "react-hot-toast";
 
 export const showBookingToast = (values, currentCar) => {
-  const formattedDate = format(new Date(values.bookingDate), "dd.MM.yyyy");
+  const [start, end] = values.bookingDate;
+
+  let bookingDateText = "";
+  if (start && end) {
+    bookingDateText = `${format(start, "dd/MM/yyyy")} - ${format(
+      end,
+      "dd/MM/yyyy"
+    )}`;
+  } else if (start) {
+    bookingDateText = format(start, "dd/MM/yyyy");
+  } else {
+    bookingDateText = "No date selected";
+  }
 
   toast(
     (t) => (
@@ -28,8 +40,8 @@ export const showBookingToast = (values, currentCar) => {
           <strong>
             {currentCar.brand} {currentCar.model}
           </strong>{" "}
-          car, booked for <strong>{formattedDate}</strong>. We will contact you
-          soon!
+          car, booked for <strong>{bookingDateText}</strong>. We will contact
+          you soon!
         </span>
         <div style={{ textAlign: "right" }}>
           <button

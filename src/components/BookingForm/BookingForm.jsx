@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import Button from "../reusable/Button/Button";
-import Calendar from "../reusable/Calendar/Calendar";
+import DatePicker from "../reusable/DatePicker/DatePicker";
 import { showBookingToast } from "./BookingToast/BookingToast";
 
 import { joiToFormErrors } from "../../utils/joiToFormErrors";
@@ -24,13 +24,10 @@ const schema = Joi.object({
       "string.empty": "Email is required",
       "string.email": "Invalid email format",
     }),
-  bookingDate: Joi.date()
-    .min(new Date().setHours(0, 0, 0, 0))
-    .required()
-    .messages({
-      "date.min": "Booking date cannot be in the past",
-      "date.base": "Booking date is required",
-    }),
+  bookingDate: Joi.array().length(2).items(Joi.date()).messages({
+    "array.length": "Please select both start and end dates",
+    "date.base": "Invalid date format",
+  }),
   comment: Joi.string().max(300).allow(""),
 });
 
@@ -42,7 +39,7 @@ export default function BookingForm() {
   const initialValues = {
     name: "",
     email: "",
-    bookingDate: null,
+    bookingDate: [null, null],
     comment: "",
   };
 
@@ -68,7 +65,7 @@ export default function BookingForm() {
         validate={validate}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, touched, values, setFieldValue }) => (
+        {({ isSubmitting, values, setFieldValue }) => (
           <Form className={css.form}>
             <div className={css.formGroup}>
               <label htmlFor="name" className={css.visuallyHidden}>
@@ -112,11 +109,14 @@ export default function BookingForm() {
               <label htmlFor="bookingDate" className={css.visuallyHidden}>
                 Booking Date
               </label>
-              <Calendar
-                bookingDate={values.bookingDate}
-                setFieldValue={setFieldValue}
-                touched={touched}
+              <DatePicker
+                startDate={values.bookingDate[0]}
+                endDate={values.bookingDate[1]}
+                onChange={(dates) => {
+                  setFieldValue("bookingDate", dates);
+                }}
               />
+
               <ErrorMessage
                 name="bookingDate"
                 component="div"
